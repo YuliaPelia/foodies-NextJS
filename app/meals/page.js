@@ -1,11 +1,8 @@
-import { useRouter } from 'next/router';
+
+import { useRouter } from 'next/navigation';
 
 const MealPage = ({ meal }) => {
     const router = useRouter();
-
-    if (router.isFallback) {
-        return <div>Loading...</div>;
-    }
 
     return (
         <div>
@@ -16,11 +13,11 @@ const MealPage = ({ meal }) => {
 };
 
 export async function generateStaticParams() {
-    // Fetch your data for meals
+    // Отримайте дані для страв
     const response = await fetch('https://api.example.com/meals');
     const meals = await response.json();
 
-    // Return the paths for each meal
+    // Поверніть шляхи для кожної страви
     const paths = meals.map(meal => ({
         params: { mealSlug: meal.slug },
     }));
@@ -29,7 +26,7 @@ export async function generateStaticParams() {
 }
 
 export async function getStaticProps({ params }) {
-    // Fetch data for the specific meal
+    // Отримайте дані для конкретної страви
     const response = await fetch(`https://api.example.com/meals/${params.mealSlug}`);
     const meal = await response.json();
 
