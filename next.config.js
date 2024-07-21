@@ -3,14 +3,10 @@ const nextConfig = {
     output: "export",
     distDir: 'dist',
     images: {
-        unoptimized: true,
+      unoptimized: true,
     },
-
-}
-
-if (process.env.NODE_ENV === 'production') {
-    nextConfig.basePath = '/foodies-NextJS'
-    nextConfig.assetPrefix = '/foodies-NextJS/'
-}
-
-module.exports = nextConfig
+    assetPrefix: process.env.NODE_ENV === 'production' ? '/foodies-NextJS' : '',
+    basePath: process.env.NODE_ENV === 'production' ? '/foodies-NextJS' : '',
+  }
+  
+  module.exports = nextConfig
