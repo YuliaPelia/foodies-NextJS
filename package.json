@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export",
-    "build": "NODE_OPTIONS=--max-old-space-size=8192 next build"
+    "export": "next export"
   },
   "dependencies": {
     "better-sqlite3": "^11.1.2",
