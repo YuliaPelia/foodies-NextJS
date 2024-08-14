@@ -4,13 +4,13 @@ import Image from 'next/image';
 import classes from './meal-item.module.css';
 
 export default function MealItem({ title, slug, image, summary, creator }) {
-  const basePath = process.env.NODE_ENV === 'production' ? '/foodies-NextJS' : '';
+  // const basePath = process.env.NODE_ENV === 'production' ? '/public/' : '';
   return (
     
     <article className={classes.meal}>
       <header>
         <div className={classes.image}>
-          <Image   src={`${basePath}${image}`} alt={title} fill />
+          <Image   src={image} alt={title} fill />
         </div>
         <div className={classes.headerText}>
           <h2>{title}</h2>
